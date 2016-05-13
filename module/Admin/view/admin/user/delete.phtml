@@ -1,0 +1,24 @@
+<div class="modal fade" id="_admin_user_delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>User deletion</h3>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid">
+                    <div id="_admin_user_delete_messages"></div>
+                    <form action="<?=$this->url('admin', ['controller' => 'user', 'action' => 'delete'])?>" id="_admin_user_delete_form" method="post">
+                        <input type="hidden" name="id" value="<?=$this->id?>">
+                        <input type="hidden" name="format" value="json">
+                        Are you sure?
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+                <button type="button" class="btn btn-danger" id="_admin_user_delete_submit">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

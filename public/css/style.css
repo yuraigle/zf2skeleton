@@ -1,0 +1,24 @@
+/* sticky footer */
+html, body {
+    height: 100%;
+}
+.page-wrap {
+    min-height: 100%;
+    margin-bottom: -42px;
+}
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+.site-footer, .page-wrap:after {
+    height: 42px;
+}
+/* \sticky footer */
+
+.header {
+    padding: 20px 0;
+}
+
+.header > .nav {
+    margin: 12px auto;
+}

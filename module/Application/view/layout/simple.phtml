@@ -1,0 +1,59 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->prependStylesheet($this->basePath('css/style.css'))
+                        ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+                        ->prependStylesheet($this->basePath('css/bootstrap.min.css')) ?>
+
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+            ->prependFile($this->basePath('js/respond.min.js'), 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->prependFile($this->basePath('js/html5shiv.min.js'),   'text/javascript', array('conditional' => 'lt IE 9',))
+        ; ?>
+
+    </head>
+    <body>
+        <div class="page-wrap">
+            <div class="container text-center" style="padding: 50px 0;">
+                <a href="/"><img src="/img/logo_big.png" alt="logo" /></a>
+            </div>
+
+            <div class="container">
+                <?php // flashmessenger setup
+                echo $this->flashMessenger()->renderCurrent('error', array('alert', 'alert-dismissible', 'alert-danger'));
+                echo $this->flashMessenger()->renderCurrent('info', array('alert', 'alert-dismissible', 'alert-info'));
+                echo $this->flashMessenger()->renderCurrent('default', array('alert', 'alert-dismissible', 'alert-warning'));
+                echo $this->flashMessenger()->renderCurrent('success', array('alert', 'alert-dismissible', 'alert-success'));
+                $this->flashMessenger()->getPluginFlashMessenger()->clearCurrentMessagesFromContainer();
+                echo $this->flashMessenger()->render('error', array('alert', 'alert-dismissible', 'alert-danger'));
+                echo $this->flashMessenger()->render('info', array('alert', 'alert-dismissible', 'alert-info'));
+                echo $this->flashMessenger()->render('default', array('alert', 'alert-dismissible', 'alert-warning'));
+                echo $this->flashMessenger()->render('success', array('alert', 'alert-dismissible', 'alert-success'));
+                ?>
+
+                <?php echo $this->content; ?>
+            </div>
+        </div>
+
+        <footer class="container site-footer">
+            <p class="text-center">&copy; Kai</p>
+        </footer>
+        <?php echo $this->inlineScript()
+            ->prependFile($this->basePath('js/app.js'))
+            ->prependFile($this->basePath('js/jquery.magnific-popup.min.js'))
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery.min.js')) ?>
+
+    </body>
+</html>

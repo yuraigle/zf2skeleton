@@ -1,0 +1,20 @@
+<?php if ($this->pageCount > 1) : ?>
+<center>
+    <ul class="pagination pagination-sm">
+        <li<?php if (! $this->previous) : ?> class="disabled"<?php endif; ?>>
+            <a href="<?=$this->url($this->route, ['page' => $this->first], false, true)?>">&laquo;</a></li>
+        <li<?php if (! $this->previous) : ?> class="disabled"<?php endif; ?>>
+            <a href="<?=$this->url($this->route, ['page' => $this->previous], false, true)?>">&lsaquo;</a></li>
+
+        <?php foreach ($this->pagesInRange as $page) : ?>
+            <li<?php if ($page == $this->current) : ?> class="active"<?php endif; ?>>
+                <a href="<?=$this->url($this->route, ['page' => $page], false, true)?>"><?=$page?></a></li>
+        <?php endforeach; ?>
+
+        <li<?php if (! $this->next) : ?> class="disabled"<?php endif; ?>>
+            <a href="<?=$this->url($this->route, ['page' => $this->next], false, true)?>">&rsaquo;</a></li>
+        <li<?php if (! $this->next) : ?> class="disabled"<?php endif; ?>>
+            <a href="<?=$this->url($this->route, ['page' => $this->last], false, true)?>">&raquo;</a></li>
+    </ul>
+</center>
+<?php endif; ?>
